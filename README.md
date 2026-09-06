@@ -17,10 +17,9 @@ Recover the password of three encrypted PDF files using:
 ## Method
 
 1. Extracted the password hash from each encrypted PDF using `pdf2john` (native Kali install) or the Networkwalks Hash Calculator (client-side, no upload)
-2. Saved each hash to a `.txt` file in `$pdf$...` format
-3. Loaded each hash file into **Johnny**
-4. Ran a dictionary/wordlist attack until a match was found
-5. Used the recovered password to unlock the original PDF and confirm the flag inside
+2. Loaded each hash into **Johnny**
+3. Ran a dictionary/wordlist attack until a match was found
+4. Used the recovered password to unlock the original PDF and confirm the flag inside
 
 ## Results
 
@@ -31,34 +30,3 @@ Recover the password of three encrypted PDF files using:
 | My Locked PDF3.pdf | Networkwalks Hash Calculator (client-side) | `password1` | `nw{networkwalks_flag_260821_1}` |
 
 ## Repo Structure
-
-```
-├── README.md
-├── hashes/
-│   ├── hash1.txt
-│   ├── hash2.txt
-│   └── hash3.txt
-├── screenshots/
-│   ├── johnny-pdf1-cracked.png
-│   ├── johnny-pdf2-cracked.png
-│   ├── hash-calculator-pdf3.png
-│   ├── pdf1-flag.png
-│   ├── pdf2-flag.png
-│   └── pdf3-flag.png
-└── notes/
-    └── commands.md
-```
-
-## Key Takeaways
-
-- `pdf2john` converts a PDF's encryption metadata into a hash format that John the Ripper can attack — this only works because PDF encryption checks a password against a derived key, which can be tested offline once the hash is extracted
-- Weak, common passwords (`good-luck`, `password1`, `1qaz2wsx`) are cracked almost instantly against a small dictionary — reinforcing why password complexity and length matter far more than obscurity
-- Extracting hashes locally (via `pdf2john` or a client-side tool) avoids uploading potentially sensitive files to third-party servers — good practice even for low-stakes lab files
-
-## Tools Used
-
-`John the Ripper` · `Johnny` · `pdf2john` · Networkwalks Hash Calculator
-
-## Author
-
-Salwa — [github.com/salwaibrahim00](https://github.com/salwaibrahim00)
