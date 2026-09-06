@@ -30,3 +30,20 @@ Recover the password of three encrypted PDF files using:
 | My Locked PDF3.pdf | Networkwalks Hash Calculator (client-side) | `password1` | `nw{networkwalks_flag_260821_1}` |
 
 ## Repo Structure
+
+- `README.md`
+- `screenshots/` — screenshots documenting each cracking step and captured flag
+
+## Key Takeaways
+
+- `pdf2john` converts a PDF's encryption metadata into a hash format that John the Ripper can attack — this only works because PDF encryption checks a password against a derived key, which can be tested offline once the hash is extracted
+- Weak, common passwords (`good-luck`, `password1`, `1qaz2wsx`) are cracked almost instantly against a small dictionary — reinforcing why password complexity and length matter far more than obscurity
+- Extracting hashes locally (via `pdf2john` or a client-side tool) avoids uploading potentially sensitive files to third-party servers — good practice even for low-stakes lab files
+
+## Tools Used
+
+`John the Ripper` · `Johnny` · `pdf2john` · Networkwalks Hash Calculator
+
+## Author
+
+Salwa — [github.com/salwaibrahim00](https://github.com/salwaibrahim00)
